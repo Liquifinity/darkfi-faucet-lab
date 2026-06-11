@@ -1,0 +1,10 @@
+# Update these owners before public release.
+# Default review owner:
+* @Liquifinity
+
+# Security-sensitive areas:
+SECURITY.md @Liquifinity
+docs/SECURITY_BOUNDARY.md @Liquifinity
+docs/THREAT_MODEL.md @Liquifinity
+scripts/ @Liquifinity
+.github/workflows/ @Liquifinity

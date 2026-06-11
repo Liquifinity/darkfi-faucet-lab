@@ -1,0 +1,21 @@
+name: Publication Safety
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  safety-check:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run publication safety check
+        shell: pwsh
+        run: ./scripts/publication-safety-check.ps1

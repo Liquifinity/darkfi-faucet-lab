@@ -1,0 +1,73 @@
+# Generated reports and raw machine outputs
+reports/*.json
+*.log
+*.tmp
+*.bak
+*.backup
+*.old
+*.raw
+*.sqlite-journal
+
+# Local DarkFi runtime/state/wallet material
+state/
+wallet/
+wallet.db
+*.wallet
+*.seed
+*.key
+*.pem
+*.secret
+*secret*
+*password*
+drk-testnet.toml
+darkfid-testnet.toml
+
+# WSL/VM backups and disks
+backups/
+*.vhd
+*.vhdx
+*.avhdx
+
+# Evidence/artifacts that may contain raw txs, wallet metadata, logs, or local state
+evidence/
+*.tx
+*.call
+*.calls-map
+HCS_*_RAW*.txt
+WSL_STORAGE_FILE_SEARCH_RAW.txt
+
+# Private operational reports and machine-specific runbooks
+/*_REPORT.md
+/*_SNAPSHOT.md
+/*_PRECHECK.md
+/*-RUNBOOK.md
+/WALLET_COIN_QUARANTINE.md
+/CURRENT_RUNTIME_*.md
+/MAIN_NODE_*.md
+/NODE_*.md
+/FAUCET_*.md
+/HCS_*.md
+/WSL_*.md
+/E585_*.md
+/PROJECT_FOLDER_AND_GITHUB_FULL_AUDIT.md
+/darkfid-relay-mining-diagnostic-*.md
+
+# Vendored/reference repositories and dependency trees
+refs/
+node_modules/
+.venv/
+target/
+dist/
+build/
+patches/
+tools/
+.tmp/
+scripts/*
+!scripts/
+!scripts/publication-safety-check.ps1
+
+# OS/editor noise
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
