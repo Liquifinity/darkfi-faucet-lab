@@ -19,5 +19,28 @@ jobs:
       - name: Set up Rust
         uses: dtolnay/rust-toolchain@stable
 
+      - name: Check Rust formatting
+        run: cargo fmt --check
+
       - name: Run publication safety check
         run: cargo run --locked --bin publication-safety-check
+
+      - name: Check FaucetPool Rust skeleton
+        run: cargo check --manifest-path contracts/faucet-pool/rust-skeleton/Cargo.toml
+
+      - name: Check JavaScript syntax
+        run: |
+          node --check contracts/faucet-pool/pool-model.js
+          node --check contracts/faucet-pool/pool-model.test.js
+          node --check contracts/faucet-pool/verify-contract-target.js
+          node --check contracts/top-up-guard/guard-model.js
+          node --check contracts/top-up-guard/guard-model.test.js
+
+      - name: Test FaucetPool model
+        run: node --test contracts/faucet-pool/pool-model.test.js
+
+      - name: Verify FaucetPool target
+        run: node contracts/faucet-pool/verify-contract-target.js
+
+      - name: Test top-up guard model
+        run: node --test contracts/top-up-guard/guard-model.test.js
