@@ -3,33 +3,54 @@ $ErrorActionPreference = "Stop"
 $blockedPathPatterns = @(
   '\.vhdx?$',
   '\.avhdx$',
+  '\.sqlite$',
+  '\.sqlite3$',
+  '\.db$',
   '(^|[\\/])backups([\\/]|$)',
   '(^|[\\/])evidence([\\/]|$)',
   '(^|[\\/])refs([\\/]|$)',
+  '(^|[\\/])reports([\\/]|$)',
+  '(^|[\\/])patches([\\/]|$)',
+  '(^|[\\/])tools([\\/]|$)',
   '(^|[\\/])state([\\/]|$)',
   '(^|[\\/])wallet([\\/]|$)',
   'wallet\.db$',
   'drk-testnet\.toml$',
   'darkfid-testnet\.toml$',
+  'darkfid-running',
+  'xmrig-running',
   '\.tx$',
   '\.call$',
   '\.calls-map$',
+  '\.seed$',
+  '\.key$',
+  '\.pem$',
+  '\.secret$',
   'HCS_.*_RAW.*\.txt$',
-  'WSL_STORAGE_FILE_SEARCH_RAW\.txt$'
+  'WSL_STORAGE_FILE_SEARCH_RAW\.txt$',
+  'GIT_.*\.log$'
 )
 
 $blockedContentPatterns = @(
   ('github' + '_pat_'),
   ('gh' + 'p_'),
+  ('gh' + 'o_'),
+  ('gh' + 'u_'),
+  ('gh' + 's_'),
   'BEGIN (RSA|OPENSSH|PRIVATE) KEY',
   'seed phrase\s*[:=]',
+  'mnemonic\s*[:=]',
   'wallet_pass\s*=',
   'password\s*=',
   'PRIVATE_KEY\s*=',
+  'SECRET_KEY\s*=',
   'ADMIN_SECRET\s*=',
   'ADDRESS_HASH_SECRET\s*=',
   'IP_HASH_SECRET\s*=',
-  'Secret Key\s*[:=]'
+  'Secret Key\s*[:=]',
+  ('x-access' + '-token:'),
+  ('Authorization:\s*' + 'Basic'),
+  ('Authorization:\s*' + 'Bearer')
 )
 
 function Get-GitFiles {

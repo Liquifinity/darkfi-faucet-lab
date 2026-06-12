@@ -19,6 +19,7 @@ Before opening a PR:
 - Document what was tested.
 - Link any issue or report the PR addresses.
 - Explain whether the change touches wallet, node, chain DB, contract, faucet claim logic, or deployment.
+- Run `.\scripts\publication-safety-check.ps1` before requesting review.
 
 ## Areas That Need Help
 
@@ -38,3 +39,11 @@ Before opening a PR:
 - Change production/Railway settings.
 - Add dependencies or external services.
 - Move or delete evidence/backups.
+
+## First-Time Contributor Path
+
+Start with:
+
+- [Safe contributor quickstart](docs/SAFE_CONTRIBUTOR_QUICKSTART.md)
+- [Security boundary](docs/SECURITY_BOUNDARY.md)
+- [Public release status](docs/PUBLIC_RELEASE_STATUS.md)

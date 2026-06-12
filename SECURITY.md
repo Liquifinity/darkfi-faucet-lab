@@ -18,7 +18,13 @@ Never commit:
 
 ## Reporting a Vulnerability
 
-Open a private maintainer contact path before public disclosure. If no private channel exists yet, open a GitHub issue with minimal detail and no secrets, asking maintainers to establish a private channel.
+Use GitHub private vulnerability reporting if available:
+
+```text
+https://github.com/Liquifinity/darkfi-faucet-lab/security/advisories/new
+```
+
+If the private advisory form is not available, open a GitHub issue with minimal detail and no secrets, asking maintainers to establish a private channel.
 
 Do not publish exploit details, private keys, wallet paths, logs containing credentials, or raw wallet artifacts.
 
@@ -39,3 +45,7 @@ Expected handling:
 - No VHDX, wallet DB, raw tx artifacts, or local configs are tracked.
 - Faucet claim flow is either proven or clearly marked experimental.
 - License is selected and committed.
+
+## Current Public Safety Statement
+
+This public repository does not grant access to maintainer wallets, nodes, VHDX backups, Railway, or private operational evidence. Contributors must reproduce work in their own testnet environments.
