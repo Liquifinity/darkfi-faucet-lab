@@ -11,6 +11,10 @@ parts of the DarkFi faucet work that are useful and safe for community review.
 - Top-up guard model.
 - Historical on-chain status summary.
 - Clean-room reproduction plan.
+- Technical research summary.
+- Node/wallet operation notes.
+- Evidence and decision index.
+- Open engineering questions.
 - Security boundary and threat model.
 - Contribution process and branch protection policy.
 - Rust publication safety checker.

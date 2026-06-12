@@ -10,13 +10,14 @@ preimage data and was not production-safe.
 
 ## Upstream References
 
-Use these DarkFi references before adding any custom proof shape:
+Use these DarkFi references from a contributor-controlled DarkFi source
+checkout before adding any custom proof shape:
 
-- `/home/darkfi/darkfi-lab/darkfi/src/contract/dao/src/client/auth_xfer.rs`
-- `/home/darkfi/darkfi-lab/darkfi/src/contract/dao/src/entrypoint/auth_xfer.rs`
-- `/home/darkfi/darkfi-lab/darkfi/src/contract/money/src/client/transfer_v1/builder.rs`
-- `/home/darkfi/darkfi-lab/darkfi/src/contract/money/src/client/transfer_v1/proof.rs`
-- `/home/darkfi/darkfi-lab/darkfi/src/contract/money/src/entrypoint/transfer_v1.rs`
+- `src/contract/dao/src/client/auth_xfer.rs`
+- `src/contract/dao/src/entrypoint/auth_xfer.rs`
+- `src/contract/money/src/client/transfer_v1/builder.rs`
+- `src/contract/money/src/client/transfer_v1/proof.rs`
+- `src/contract/money/src/entrypoint/transfer_v1.rs`
 
 The DAO `AuthMoneyTransfer` path is the primary reference because it verifies
 Money transfer authorization without asking the caller to reveal the output
