@@ -1,0 +1,189 @@
+{
+  "schema": "darkfi-faucet-pool-conformance-v1",
+  "generated_by": "contracts/faucet-pool/generate-conformance-vectors.js",
+  "constants": {
+    "claim_amount_units": "3000",
+    "claim_amount_drk": "0.00003",
+    "cooldown_seconds": 43200,
+    "daily_pool_units": "33000000",
+    "daily_pool_drk": "0.33"
+  },
+  "vectors": [
+    {
+      "name": "successful claim transfers DRK",
+      "initial_state": {
+        "balance_units": "100000000"
+      },
+      "call": {
+        "function": "claim",
+        "recipient": "wallet-a",
+        "timestamp_seconds": 1000
+      },
+      "expected": {
+        "ok": true,
+        "amountUnits": "3000",
+        "spentTodayUnits": "3000",
+        "balanceUnits": "99997000"
+      },
+      "expected_state": {
+        "balance_units": "99997000",
+        "current_day": 0,
+        "spent_today_units": "3000",
+        "recipient_last_claim_at": 1000,
+        "paused": false
+      }
+    },
+    {
+      "name": "duplicate wallet claim before 12h is rejected",
+      "initial_operations": [
+        {
+          "function": "claim",
+          "recipient": "wallet-a",
+          "timestamp_seconds": 1000
+        }
+      ],
+      "call": {
+        "function": "claim",
+        "recipient": "wallet-a",
+        "timestamp_seconds": 44199
+      },
+      "expected": {
+        "ok": false,
+        "reason": "cooldown"
+      },
+      "expected_state": {
+        "balance_units": "99997000",
+        "current_day": 0,
+        "spent_today_units": "3000",
+        "recipient_last_claim_at": 1000,
+        "paused": false
+      }
+    },
+    {
+      "name": "paused pool rejects claim",
+      "initial_operations": [
+        {
+          "function": "pause"
+        }
+      ],
+      "call": {
+        "function": "claim",
+        "recipient": "wallet-a",
+        "timestamp_seconds": 1000
+      },
+      "expected": {
+        "ok": false,
+        "reason": "paused"
+      },
+      "expected_state": {
+        "balance_units": "100000000",
+        "current_day": 0,
+        "spent_today_units": "0",
+        "recipient_last_claim_at": null,
+        "paused": true
+      }
+    },
+    {
+      "name": "claim above daily pool is rejected",
+      "initial_state": {
+        "balance_units": "100000000",
+        "current_day_timestamp_seconds": 1000,
+        "spent_today_units": "33000000"
+      },
+      "call": {
+        "function": "claim",
+        "recipient": "wallet-overflow",
+        "timestamp_seconds": 1000
+      },
+      "expected": {
+        "ok": false,
+        "reason": "daily_pool_depleted"
+      },
+      "expected_state": {
+        "balance_units": "100000000",
+        "current_day": 0,
+        "spent_today_units": "33000000",
+        "recipient_last_claim_at": null,
+        "paused": false
+      }
+    },
+    {
+      "name": "new day resets allowance without carrying unused budget",
+      "initial_state": {
+        "balance_units": "100000000",
+        "current_day_timestamp_seconds": 1,
+        "spent_today_units": "15000000"
+      },
+      "call": {
+        "function": "claim",
+        "recipient": "wallet-next-day",
+        "timestamp_seconds": 86401
+      },
+      "expected": {
+        "ok": true,
+        "amountUnits": "3000",
+        "spentTodayUnits": "3000",
+        "balanceUnits": "99997000"
+      },
+      "expected_state": {
+        "balance_units": "99997000",
+        "current_day": 1,
+        "spent_today_units": "3000",
+        "recipient_last_claim_at": 86401,
+        "paused": false
+      }
+    },
+    {
+      "name": "insufficient custody balance rejects claim",
+      "initial_state": {
+        "balance_units": "2000"
+      },
+      "call": {
+        "function": "claim",
+        "recipient": "wallet-a",
+        "timestamp_seconds": 1000
+      },
+      "expected": {
+        "ok": false,
+        "reason": "insufficient_balance"
+      },
+      "expected_state": {
+        "balance_units": "2000",
+        "current_day": 0,
+        "spent_today_units": "0",
+        "recipient_last_claim_at": null,
+        "paused": false
+      }
+    },
+    {
+      "name": "top-up increases custody balance without increasing daily allowance",
+      "initial_operations": [
+        {
+          "function": "top_up",
+          "amount_units": "1000000000"
+        }
+      ],
+      "initial_state": {
+        "balance_units": "1033000000",
+        "current_day_timestamp_seconds": 1000,
+        "spent_today_units": "33000000"
+      },
+      "call": {
+        "function": "claim",
+        "recipient": "wallet-overflow",
+        "timestamp_seconds": 1000
+      },
+      "expected": {
+        "ok": false,
+        "reason": "daily_pool_depleted"
+      },
+      "expected_state": {
+        "balance_units": "1033000000",
+        "current_day": 0,
+        "spent_today_units": "33000000",
+        "recipient_last_claim_at": null,
+        "paused": false
+      }
+    }
+  ]
+}

@@ -11,11 +11,13 @@ permissions:
 
 jobs:
   safety-check:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Set up Rust
+        uses: dtolnay/rust-toolchain@stable
+
       - name: Run publication safety check
-        shell: pwsh
-        run: ./scripts/publication-safety-check.ps1
+        run: cargo run --locked --bin publication-safety-check

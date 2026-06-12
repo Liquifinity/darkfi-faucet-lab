@@ -1,0 +1,61 @@
+k = 11;
+field = "pallas";
+
+constant "FaucetClaim" {
+    EcFixedPointBase NULLIFIER_K,
+}
+
+witness "FaucetClaim" {
+    Base custody_user_data,
+    Base input_user_data_blind,
+
+    EcNiPoint recipient_public_key,
+    Base recipient_value,
+    Base recipient_token_id,
+    Base recipient_coin_blind,
+
+    EcNiPoint custody_public_key,
+    Base change_value,
+    Base change_spend_hook,
+    Base change_coin_blind,
+}
+
+circuit "FaucetClaim" {
+    ONE = witness_base(1);
+    ZERO = witness_base(0);
+
+    input_user_data_enc = poseidon_hash(custody_user_data, input_user_data_blind);
+    constrain_instance(input_user_data_enc);
+
+    recipient_pubkey = ec_mul_var_base(ONE, recipient_public_key);
+    recipient_coin = poseidon_hash(
+        ec_get_x(recipient_pubkey),
+        ec_get_y(recipient_pubkey),
+        recipient_value,
+        recipient_token_id,
+        ZERO,
+        ZERO,
+        recipient_coin_blind,
+    );
+    constrain_instance(recipient_coin);
+    constrain_instance(recipient_value);
+    constrain_instance(recipient_token_id);
+
+    custody_pubkey = ec_mul_var_base(ONE, custody_public_key);
+    custody_public_x = ec_get_x(custody_pubkey);
+    custody_public_y = ec_get_y(custody_pubkey);
+
+    change_coin = poseidon_hash(
+        custody_public_x,
+        custody_public_y,
+        change_value,
+        recipient_token_id,
+        change_spend_hook,
+        custody_user_data,
+        change_coin_blind,
+    );
+    constrain_instance(change_coin);
+    constrain_instance(change_spend_hook);
+    constrain_instance(custody_public_x);
+    constrain_instance(custody_public_y);
+}

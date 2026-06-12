@@ -3,7 +3,7 @@
 ## Repository Settings
 
 - [ ] Create a dedicated repository for DarkFi Faucet work.
-- [ ] Do not publish from the parent `C:\Users\rfcco\CODEX` repo by accident.
+- [ ] Do not publish from a parent workspace by accident.
 - [ ] Add license.
 - [ ] Add maintainers.
 - [ ] Enable Issues.
@@ -40,7 +40,7 @@ For `main`:
 
 ## Before Public Release
 
-- [ ] Run `scripts/publication-safety-check.ps1`.
+- [ ] Run `cargo run --locked --bin publication-safety-check`.
 - [ ] Confirm no ignored sensitive files are tracked.
 - [ ] Confirm no VHDX/wallet DB/raw tx/local config is tracked.
 - [ ] Confirm historical reports are sanitized or excluded.

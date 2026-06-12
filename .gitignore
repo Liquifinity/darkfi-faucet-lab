@@ -57,14 +57,13 @@ refs/
 node_modules/
 .venv/
 target/
+**/target/
 dist/
 build/
 patches/
 tools/
 .tmp/
-scripts/*
-!scripts/
-!scripts/publication-safety-check.ps1
+scripts/
 
 # OS/editor noise
 .DS_Store

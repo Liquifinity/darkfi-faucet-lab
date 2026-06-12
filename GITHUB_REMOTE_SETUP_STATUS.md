@@ -2,14 +2,12 @@
 
 ## Status
 
-Local repository is ready.
-
-Remote creation is blocked because GitHub CLI is not authenticated in this environment.
+Remote repository is created and configured.
 
 ## Local Repository
 
 - Branch: `main`
-- Initial public commit: `a5a1d1e Prepare public collaboration repository`
+- Initial public commit: `3be95fc Prepare public collaboration repository`
 - License: Apache-2.0
 - Safety check: passed
 
@@ -26,48 +24,52 @@ gh version 2.94.0
 Authentication status:
 
 ```text
-not logged in
+logged in as Liquifinity
 ```
 
-The attempted `gh auth login --web` did not complete inside the command timeout.
-
-## Intended Remote
+## Remote Repository
 
 ```text
-https://github.com/Liquifinity/darkfi-faucet-lab.git
+https://github.com/Liquifinity/darkfi-faucet-lab
 ```
 
-## Required Manual Step
+Visibility:
 
-Run:
-
-```powershell
-$gh = Get-Content -Raw .\.tmp\gh-path.txt
-& $gh.Trim() auth login --hostname github.com --git-protocol https --web
+```text
+public
 ```
 
-After login succeeds:
+Remote configured locally:
 
-```powershell
-& $gh.Trim() repo create Liquifinity/darkfi-faucet-lab --public --source . --remote origin --push
+```text
+origin https://github.com/Liquifinity/darkfi-faucet-lab.git
 ```
 
-If the repo already exists:
+## Configured Settings
 
-```powershell
-git remote add origin https://github.com/Liquifinity/darkfi-faucet-lab.git
-git push -u origin main
-```
-
-## GitHub Settings To Configure
-
+- Issues: enabled.
+- Wiki: disabled.
+- Projects: disabled.
+- Delete branch on merge: enabled.
+- Branch protection on `main`: enabled.
+- Pull request review required: enabled.
+- Required approving reviews: `1`.
+- CODEOWNERS review required: enabled.
+- Dismiss stale reviews: enabled.
+- Conversation resolution required: enabled.
+- Force pushes: disabled.
+- Branch deletion: disabled.
+- Actions default workflow permissions: read-only.
+- Dependabot security updates: enabled.
+- Vulnerability alerts: enabled.
 - Secret scanning: enabled.
-- Push protection: enabled.
-- Dependabot alerts: enabled.
-- Security advisories: enabled.
-- Branch protection for `main`.
-- Pull requests required.
-- At least one review required.
-- Force pushes disabled.
-- Branch deletion disabled.
+- Secret scanning push protection: enabled.
 
+## Remaining Manual Review
+
+Confirm in GitHub UI:
+
+- Security advisories page is visible.
+- Branch protection shows expected rules.
+- CODEOWNERS owner `@Liquifinity` is accepted by GitHub.
+- Maintainer list is updated with real GitHub handles.

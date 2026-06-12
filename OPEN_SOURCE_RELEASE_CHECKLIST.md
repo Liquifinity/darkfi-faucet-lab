@@ -2,7 +2,7 @@
 
 ## Blocking Items
 
-- [ ] Choose and commit a license.
+- [x] Choose and commit a license.
 - [ ] Confirm no secrets are tracked.
 - [ ] Confirm no VHDX, wallet DB, chain DB, raw tx, or local config is tracked.
 - [ ] Decide whether this repository is for runbooks only or also contract/source code.
@@ -10,6 +10,9 @@
 - [ ] Configure GitHub branch protection.
 - [ ] Enable GitHub secret scanning and push protection.
 - [ ] Add maintainers to `MAINTAINERS.md`.
+- [x] Add publication safety check.
+- [x] Add branch protection documentation.
+- [x] Add security policy.
 
 ## Recommended GitHub Settings
 

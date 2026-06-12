@@ -1,0 +1,29 @@
+[package]
+name = "darkfi_faucet_pool_contract"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+darkfi-sdk = { path = "../../sdk", features = ["wasm"] }
+darkfi-serial = { path = "../../serial", features = ["derive", "crypto"] }
+darkfi_money_contract = { path = "../money", features = ["no-entrypoint"] }
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+getrandom = { version = "0.2.8", features = ["custom"] }
+darkfi-sdk = { path = "../../sdk", features = ["wasm"] }
+
+[features]
+default = ["darkfi"]
+darkfi = []
+no-entrypoint = []
+client = []
+
+[workspace]
+
+[patch.crates-io]
+halo2_proofs = { git = "https://github.com/parazyd/halo2", branch = "v032" }
+halo2_gadgets = { git = "https://github.com/parazyd/halo2", branch = "v032" }
