@@ -1,0 +1,89 @@
+{
+  "schema": "darkfi-faucet-contract-proof-v1",
+  "network": "DarkFi testnet",
+  "contract_id": "2spxiepJc95oLPA98q3EgUvVJZFDi9JiWvCJmE6sUbf8",
+  "source_fingerprint": "0000000000000000000000000000000000000000000000000000000000000000",
+  "generated_at": "2026-05-31T00:00:00Z",
+  "gates": [
+    {
+      "name": "wasm_build",
+      "status": "passed",
+      "evidence": "WASM built and exports memory, __initialize, __entrypoint, __update, __metadata."
+    },
+    {
+      "name": "auth_money_transfer_port",
+      "status": "passed",
+      "evidence": "npm run verify:auth-money-transfer-port passed against exported DarkFi references."
+    },
+    {
+      "name": "deployooor_deploy",
+      "status": "passed",
+      "evidence": "Deployooor deploy transaction confirmed."
+    },
+    {
+      "name": "contract_id_recorded",
+      "status": "passed",
+      "evidence": "Contract id recorded from deploy auth/list output."
+    },
+    {
+      "name": "operator_top_up",
+      "status": "passed",
+      "evidence": "Operator wallet top-up confirmed."
+    },
+    {
+      "name": "public_top_up",
+      "status": "passed",
+      "evidence": "Non-admin wallet top-up confirmed."
+    },
+    {
+      "name": "top_up_does_not_expand_daily_pool",
+      "status": "passed",
+      "evidence": "Daily allowance unchanged after top-up."
+    },
+    {
+      "name": "successful_claim",
+      "status": "passed",
+      "evidence": "Controlled wallet claim transaction confirmed."
+    },
+    {
+      "name": "recipient_received_exact_claim_amount",
+      "status": "passed",
+      "evidence": "Recipient scan shows exactly 0.00003 DRK."
+    },
+    {
+      "name": "duplicate_claim_rejected",
+      "status": "passed",
+      "evidence": "Second claim before cooldown rejected."
+    },
+    {
+      "name": "daily_pool_depletion_rejected",
+      "status": "passed",
+      "evidence": "Claim above configured daily pool rejected."
+    },
+    {
+      "name": "daily_reset_restores_allowance",
+      "status": "passed",
+      "evidence": "Next day allowance reset to 0.33 DRK without carry-over."
+    },
+    {
+      "name": "pause_rejects_claim",
+      "status": "passed",
+      "evidence": "Paused contract rejected claim."
+    },
+    {
+      "name": "resume_allows_claim",
+      "status": "passed",
+      "evidence": "Resumed contract accepted valid claim."
+    },
+    {
+      "name": "emergency_withdraw_admin_only",
+      "status": "passed",
+      "evidence": "Non-admin rejected and admin emergency withdraw confirmed."
+    },
+    {
+      "name": "custody_inputs_verified",
+      "status": "passed",
+      "evidence": "Harness proves claim spend inputs are FaucetPool custody coins."
+    }
+  ]
+}

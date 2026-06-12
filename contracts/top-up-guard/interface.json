@@ -1,0 +1,48 @@
+{
+  "name": "darkfi_testnet_faucet_top_up_guard",
+  "version": "0.1.0-target",
+  "token": {
+    "symbol": "DRK",
+    "network": "DarkFi testnet",
+    "token_id_env": "DRK_TOKEN_ID"
+  },
+  "policy": {
+    "authority": "public trigger, contract-enforced destination",
+    "carry_over": false
+  },
+  "calls": [
+    {
+      "name": "deposit",
+      "authority": "public",
+      "effects": ["increase_guard_reserve_only"]
+    },
+    {
+      "name": "replenish",
+      "authority": "public",
+      "effects": [
+        "reject_if_paused",
+        "reject_if_destination_is_not_faucet_pool",
+        "reject_if_token_id_mismatch",
+        "reject_if_faucet_pool_is_at_or_above_min_balance",
+        "reject_if_target_balance_would_be_exceeded",
+        "reject_if_daily_replenish_limit_would_be_exceeded",
+        "transfer_only_to_faucet_pool_custody"
+      ]
+    },
+    {
+      "name": "pause",
+      "authority": "admin",
+      "effects": ["disable_replenish"]
+    },
+    {
+      "name": "resume",
+      "authority": "admin",
+      "effects": ["enable_replenish"]
+    },
+    {
+      "name": "emergency_withdraw",
+      "authority": "admin",
+      "effects": ["transfer_guard_reserve_to_admin_recipient"]
+    }
+  ]
+}

@@ -57,6 +57,7 @@ refs/
 node_modules/
 .venv/
 target/
+**/target/
 dist/
 build/
 patches/

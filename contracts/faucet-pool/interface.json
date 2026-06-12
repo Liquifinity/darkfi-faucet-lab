@@ -1,0 +1,61 @@
+{
+  "name": "darkfi_testnet_faucet_pool",
+  "version": "0.1.0-target",
+  "token": {
+    "symbol": "DRK",
+    "network": "DarkFi testnet",
+    "token_id_env": "DRK_TOKEN_ID"
+  },
+  "policy": {
+    "claim_amount": "0.00003",
+    "cooldown_seconds": 43200,
+    "daily_pool_amount": "0.33",
+    "carry_over": false
+  },
+  "calls": [
+    {
+      "name": "top_up",
+      "authority": "public",
+      "inputs": ["amount_units", "token_id", "custody_output"],
+      "effects": [
+        "reject_if_token_id_mismatch",
+        "increase_contract_custody_balance",
+        "do_not_change_daily_pool_allowance"
+      ]
+    },
+    {
+      "name": "claim",
+      "authority": "public",
+      "inputs": ["recipient_identity_commitment", "token_id", "amount_units", "transfer_call_index", "authorization"],
+      "effects": [
+        "reject_if_paused",
+        "reject_if_wallet_in_cooldown",
+        "reject_if_daily_pool_depleted",
+        "reject_if_insufficient_custody_balance",
+        "transfer_claim_amount_to_recipient",
+        "record_last_claim_timestamp",
+        "increase_spent_today"
+      ]
+    },
+    {
+      "name": "pause",
+      "authority": "admin",
+      "inputs": [],
+      "effects": ["disable_claims"]
+    },
+    {
+      "name": "resume",
+      "authority": "admin",
+      "inputs": [],
+      "effects": ["enable_claims"]
+    },
+    {
+      "name": "emergency_withdraw",
+      "authority": "admin",
+      "inputs": ["amount_units", "recipient_address", "recipient_output", "change_outputs"],
+      "effects": ["transfer_custody_balance_to_admin_recipient"]
+    }
+  ],
+  "private_claim_authorization": ["public_inputs", "proof"],
+  "money_output_auth": ["output_index", "public_key", "token_id", "value_units", "coin_blind"]
+}

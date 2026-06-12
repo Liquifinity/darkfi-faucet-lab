@@ -18,6 +18,7 @@ Do not commit wallet databases, private keys, raw VM disks, secrets, local chain
 Intended public content:
 
 - Rust safety tooling;
+- FaucetPool contract model and Rust/WASM skeleton;
 - clean-room faucet design notes;
 - contributor and maintainer security process;
 - reproducible public documentation;
@@ -43,6 +44,9 @@ See [SECURITY.md](SECURITY.md).
 
 Public collaboration model:
 
+- [FaucetPool historical status](docs/FAUCETPOOL_HISTORICAL_STATUS.md)
+- [Clean-room faucet cycle](docs/CLEAN_ROOM_FAUCET_CYCLE.md)
+- [Public content inventory](docs/PUBLIC_CONTENT_INVENTORY.md)
 - [Public access model](docs/PUBLIC_ACCESS_MODEL.md)
 - [Public release status](docs/PUBLIC_RELEASE_STATUS.md)
 - [Safe contributor quickstart](docs/SAFE_CONTRIBUTOR_QUICKSTART.md)
@@ -53,6 +57,12 @@ Public collaboration model:
 - [GitHub admin checklist](docs/GITHUB_ADMIN_CHECKLIST.md)
 - [Remote repository setup](docs/REMOTE_REPOSITORY_SETUP.md)
 - [License decision](docs/LICENSE_DECISION.md)
+
+Contract work:
+
+- [FaucetPool specification](contracts/faucet-pool/SPEC.md)
+- [DarkFi porting checklist](contracts/faucet-pool/DARKFI_PORTING_CHECKLIST.md)
+- [FaucetPool Rust/WASM skeleton](contracts/faucet-pool/rust-skeleton)
 
 ## Safety Baseline
 
