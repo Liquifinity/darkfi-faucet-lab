@@ -1,6 +1,8 @@
 # DarkFi Faucet Lab
 
-This repository contains operational runbooks, audits, scripts, and decision records for building and validating a DarkFi testnet faucet.
+This repository is the public coordination layer for a DarkFi testnet faucet.
+
+It is intentionally Rust-first because DarkFi contracts, tooling, and the relevant builder workflow are Rust/WASM-oriented. The repository does not publish maintainer wallet state or historical private artifacts.
 
 Current status:
 
@@ -15,12 +17,11 @@ Do not commit wallet databases, private keys, raw VM disks, secrets, local chain
 
 Intended public content:
 
-- runbooks;
-- non-secret scripts;
-- audit summaries;
-- architecture notes;
-- contribution process;
-- security process.
+- Rust safety tooling;
+- clean-room faucet design notes;
+- contributor and maintainer security process;
+- reproducible public documentation;
+- non-custodial testnet coordination.
 
 Excluded from Git:
 
@@ -57,8 +58,8 @@ Public collaboration model:
 
 Run before publishing changes:
 
-```powershell
-.\scripts\publication-safety-check.ps1
+```bash
+cargo run --locked --bin publication-safety-check
 ```
 
 ## License

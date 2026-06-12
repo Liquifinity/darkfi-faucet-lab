@@ -23,8 +23,8 @@ Use least privilege.
 
 Before any release:
 
-```powershell
-.\scripts\publication-safety-check.ps1
+```bash
+cargo run --locked --bin publication-safety-check
 git status --short --ignored
 git ls-files
 ```

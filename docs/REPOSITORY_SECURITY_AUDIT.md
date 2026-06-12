@@ -14,7 +14,7 @@ Tracked files are intentionally limited to:
 - security and contribution docs;
 - GitHub templates;
 - publication safety workflow;
-- publication safety script.
+- Rust publication safety tooling.
 
 ## Ignored Private Surface
 

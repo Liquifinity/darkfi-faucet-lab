@@ -6,6 +6,8 @@ Clone the public repository. Do not request maintainer wallets, VHDX files, raw 
 
 Every contributor should use their own local testnet environment.
 
+This repository is Rust-first. Install a stable Rust toolchain before running local checks.
+
 ## Safe Contribution Types
 
 - Documentation improvements.
@@ -33,5 +35,11 @@ Your PR should state:
 - why it is safe;
 - what commands you ran;
 - whether it touches wallet, node, chain DB, contract, deploy, broadcast, or production.
+
+Minimum local check:
+
+```bash
+cargo run --locked --bin publication-safety-check
+```
 
 If the answer is unclear, mark the PR as security-sensitive.
