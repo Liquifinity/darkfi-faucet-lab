@@ -19,7 +19,32 @@ Before opening a PR:
 - Document what was tested.
 - Link any issue or report the PR addresses.
 - Explain whether the change touches wallet, node, chain DB, contract, faucet claim logic, or deployment.
-- Run `.\scripts\publication-safety-check.ps1` before requesting review.
+- Run the local checks before requesting review:
+
+```bash
+cargo fmt --check
+cargo run --locked --bin publication-safety-check
+cargo check --manifest-path contracts/faucet-pool/rust-skeleton/Cargo.toml
+node --test contracts/faucet-pool/pool-model.test.js
+node contracts/faucet-pool/verify-contract-target.js
+node --test contracts/top-up-guard/guard-model.test.js
+```
+
+## PR Safety Gates
+
+Public contributors may open pull requests. They should not receive direct
+write access to `main`.
+
+The `main` branch must stay protected with:
+
+- required `safety-check` status check;
+- force pushes disabled;
+- branch deletion disabled;
+- admins included in protection.
+
+Maintainers may merge only after the required check passes. If a PR touches
+wallet, node, chain DB, deployment, broadcast, contract custody, or security
+limits, treat it as security-sensitive even if CI passes.
 
 ## Areas That Need Help
 

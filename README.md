@@ -51,6 +51,7 @@ Public collaboration model:
 - [Evidence and decision index](docs/EVIDENCE_AND_DECISION_INDEX.md)
 - [Node and wallet operation notes](docs/NODE_WALLET_OPERATION_NOTES.md)
 - [Open engineering questions](docs/OPEN_ENGINEERING_QUESTIONS.md)
+- [Pull request security model](docs/PR_SECURITY_MODEL.md)
 - [Public access model](docs/PUBLIC_ACCESS_MODEL.md)
 - [Public release status](docs/PUBLIC_RELEASE_STATUS.md)
 - [Safe contributor quickstart](docs/SAFE_CONTRIBUTOR_QUICKSTART.md)
