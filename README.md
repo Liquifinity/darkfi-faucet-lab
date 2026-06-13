@@ -44,6 +44,9 @@ See [SECURITY.md](SECURITY.md).
 
 Public collaboration model:
 
+- [Architecture](docs/ARCHITECTURE.md)
+- [Roadmap](docs/ROADMAP.md)
+- [Engineering quality bar](docs/ENGINEERING_QUALITY_BAR.md)
 - [FaucetPool historical status](docs/FAUCETPOOL_HISTORICAL_STATUS.md)
 - [Clean-room faucet cycle](docs/CLEAN_ROOM_FAUCET_CYCLE.md)
 - [Public content inventory](docs/PUBLIC_CONTENT_INVENTORY.md)
