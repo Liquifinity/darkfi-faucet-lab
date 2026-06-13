@@ -11,6 +11,9 @@ parts of the DarkFi faucet work that are useful and safe for community review.
 - Top-up guard model.
 - Historical on-chain status summary.
 - Clean-room reproduction plan.
+- Architecture.
+- Roadmap.
+- Engineering quality bar.
 - Technical research summary.
 - Node/wallet operation notes.
 - Evidence and decision index.
