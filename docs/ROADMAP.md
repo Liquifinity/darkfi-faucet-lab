@@ -22,18 +22,23 @@ Status: next.
 Goal: prove one complete FaucetPool cycle without private maintainer runtime
 state.
 
+The latest DarkFi hardening reset makes this mandatory. Historical deployed
+contracts must be redeployed before they can be used as current evidence.
+
 Required:
 
 1. fresh accessible DarkFi testnet environment;
-2. explicit test wallet;
-3. build FaucetPool;
-4. deploy;
-5. minimal top-up;
-6. resume;
-7. controlled claim;
-8. confirmed chain inclusion;
-9. wallet receipt;
-10. duplicate-claim rejection.
+2. updated DarkFi node and `drk`;
+3. reset node database artifacts according to official guidance;
+4. explicit test wallet;
+5. build FaucetPool;
+6. deploy;
+7. minimal top-up;
+8. resume;
+9. controlled claim;
+10. confirmed chain inclusion;
+11. wallet receipt;
+12. duplicate-claim rejection.
 
 Output:
 
@@ -74,4 +79,3 @@ Needs:
 - public custody funding;
 - mining optimization;
 - mainnet assumptions.
-

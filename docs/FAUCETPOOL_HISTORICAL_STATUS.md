@@ -21,6 +21,10 @@ private configs, chain DBs, WSL disks, logs, and machine-specific evidence.
 These transactions prove prior testnet work. They do not prove the historical
 contract is currently funded, unpaused, or claimable.
 
+After the 2026-06-12 DarkFi testnet hardening reset, historical deployed
+contracts must be considered pre-reset evidence. They are not valid current
+deployment proof.
+
 ## Claim Status
 
 No FaucetPool claim has been proven end-to-end in the public repository.
