@@ -9,7 +9,8 @@ Current status:
 - This is a public collaboration repository.
 - It does not contain maintainer wallet material, VHDX backups, raw transaction artifacts, or private chain state.
 - The historical FaucetPool work is treated as private evidence, not as a public claimable faucet.
-- The recommended next path is a clean-room faucet cycle: accessible runtime, explicit wallet, deploy, top-up, resume, claim, confirmation, and duplicate-claim rejection.
+- After the latest DarkFi testnet hardening reset, historical deployed contracts must be treated as invalid for current proof.
+- The next path is a clean-room faucet cycle: accessible runtime, explicit wallet, deploy, top-up, resume, claim, confirmation, and duplicate-claim rejection.
 - The current source is a Rust-first contract/model/research base, not a live faucet service.
 
 Do not commit wallet databases, private keys, raw VM disks, secrets, local chain state, or raw transaction artifacts.
@@ -56,6 +57,7 @@ Public collaboration model:
 - [Architecture](docs/ARCHITECTURE.md)
 - [Roadmap](docs/ROADMAP.md)
 - [Engineering quality bar](docs/ENGINEERING_QUALITY_BAR.md)
+- [DarkFi testnet reset tracking](docs/DARKFI_TESTNET_RESET_TRACKING.md)
 - [FaucetPool historical status](docs/FAUCETPOOL_HISTORICAL_STATUS.md)
 - [Clean-room faucet cycle](docs/CLEAN_ROOM_FAUCET_CYCLE.md)
 - [Public content inventory](docs/PUBLIC_CONTENT_INVENTORY.md)

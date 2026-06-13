@@ -13,6 +13,7 @@ parts of the DarkFi faucet work that are useful and safe for community review.
 - Clean-room reproduction plan.
 - Architecture.
 - Roadmap.
+- DarkFi testnet reset tracking.
 - Engineering quality bar.
 - Technical research summary.
 - Node/wallet operation notes.
