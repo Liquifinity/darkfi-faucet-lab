@@ -1,6 +1,6 @@
 # DarkFi Faucet Lab
 
-This repository is the public coordination layer for a DarkFi testnet faucet.
+This repository is the public engineering layer for a DarkFi testnet faucet.
 
 It is intentionally Rust-first because DarkFi contracts, tooling, and the relevant builder workflow are Rust/WASM-oriented. The repository does not publish maintainer wallet state or historical private artifacts.
 
@@ -10,6 +10,7 @@ Current status:
 - It does not contain maintainer wallet material, VHDX backups, raw transaction artifacts, or private chain state.
 - The historical FaucetPool work is treated as private evidence, not as a public claimable faucet.
 - The recommended next path is a clean-room faucet cycle: accessible runtime, explicit wallet, deploy, top-up, resume, claim, confirmation, and duplicate-claim rejection.
+- The current source is a Rust-first contract/model/research base, not a live faucet service.
 
 Do not commit wallet databases, private keys, raw VM disks, secrets, local chain state, or raw transaction artifacts.
 
@@ -19,6 +20,7 @@ Intended public content:
 
 - Rust safety tooling;
 - FaucetPool contract model and Rust/WASM skeleton;
+- top-up guard model;
 - clean-room faucet design notes;
 - contributor and maintainer security process;
 - reproducible public documentation;
@@ -37,6 +39,13 @@ Excluded from Git:
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
+
+Also see:
+
+- [Code of conduct](CODE_OF_CONDUCT.md)
+- [Support](SUPPORT.md)
+- [Governance](GOVERNANCE.md)
+- [Maintainers](MAINTAINERS.md)
 
 ## Security
 
@@ -71,13 +80,19 @@ Contract work:
 - [FaucetPool specification](contracts/faucet-pool/SPEC.md)
 - [DarkFi porting checklist](contracts/faucet-pool/DARKFI_PORTING_CHECKLIST.md)
 - [FaucetPool Rust/WASM skeleton](contracts/faucet-pool/rust-skeleton)
+- [Top-up guard model](contracts/top-up-guard/SPEC.md)
 
 ## Safety Baseline
 
 Run before publishing changes:
 
 ```bash
+cargo fmt --check
 cargo run --locked --bin publication-safety-check
+cargo check --manifest-path contracts/faucet-pool/rust-skeleton/Cargo.toml
+node --test contracts/faucet-pool/pool-model.test.js
+node contracts/faucet-pool/verify-contract-target.js
+node --test contracts/top-up-guard/guard-model.test.js
 ```
 
 ## License
