@@ -64,6 +64,9 @@ patches/
 tools/
 .tmp/
 scripts/
+!scripts/
+scripts/*
+!scripts/generate-faucet-claim-call-wsl.sh
 
 # OS/editor noise
 .DS_Store
