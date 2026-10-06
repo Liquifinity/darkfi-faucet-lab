@@ -1,0 +1,11 @@
+# Public example only. Never commit wallet passwords, wallet databases, keys,
+# seed phrases, or private operator configuration.
+
+network = "testnet"
+
+[network_config."testnet"]
+cache_path = "/private/runtime/state/cache"
+wallet_path = "/private/runtime/wallets/faucet/wallet.db"
+wallet_pass = "SET_IN_PRIVATE_OPERATOR_ENVIRONMENT"
+endpoint = "tcp://127.0.0.1:18345"
+history_path = "/private/runtime/state/history.txt"
