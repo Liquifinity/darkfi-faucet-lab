@@ -6,6 +6,6 @@ network = "testnet"
 [network_config."testnet"]
 cache_path = "/private/runtime/state/cache"
 wallet_path = "/private/runtime/wallets/faucet/wallet.db"
-wallet_pass = "SET_IN_PRIVATE_OPERATOR_ENVIRONMENT"
+# Supply the wallet password only through the private operator configuration.
 endpoint = "tcp://127.0.0.1:18345"
 history_path = "/private/runtime/state/history.txt"
